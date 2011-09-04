@@ -25,21 +25,21 @@ $ ->
       true
     true
 
-  $('#bookbark-widget .close, #bookbark-widget .cancel').click ->
-    $('#bookbark-widget').hide('fast')
+  $('#bookmark-widget .close, #bookmark-widget .cancel').click ->
+    $('#bookmark-widget').hide('fast')
     true
 
-  $('#bookbark-widget .add-category').keyup (e)->
+  $('#bookmark-widget .add-category').keyup (e)->
     if e.keyCode is 13
       e.preventDefault()
       el = $('<span class="btn small" />').text($(this).val())
-      $('#bookbark-widget .categories').append(el).show()
+      $('#bookmark-widget .categories').append(el).show()
     true
   
   $('#add-button').click ->
-    $('#bookbark-widget').show ->
+    $('#bookmark-widget').show ->
       selected = $('.categories .selected')
-      categories = $('#bookbark-widget .categories')
+      categories = $('#bookmark-widget .categories')
       category = $('<span class="btn small" />;')
       if selected.length > 0
         categories.html('')

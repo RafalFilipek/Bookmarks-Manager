@@ -15,3 +15,12 @@ categories:
     important: Ważne
     other: Pozostałe
     search: Szukaj...
+
+bookmarks:
+    add_widget:
+        title: Dodaj link
+        url: Adres URL
+        categories: Kategorie
+        categories_hint: Wpisz & ENTER
+        add: Dodaj link
+        cancel: Anuluj

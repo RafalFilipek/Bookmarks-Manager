@@ -1,22 +1,26 @@
-<div id="bookbark-widget" class="modal" style="display: none">
+<div class="modal" id="bookmark-widget">
     <div class="modal-header">
-        <h3>Dodaj link</h3>
+        <h3>{{ app.translator.trans('bookmarks.add_widget.title') }}</h3>
         <a href="#" class="close">&times;</a>
     </div>
     <div class="modal-body">
         <form>
-            <input id="bookmark_href" type="text" class="xlarge" placeholder="URL" name="bookmark[href]" />
-            <span class="help-inline">Wprowadź adres URL<span>
+            <div class="input-prepend url-input">
+                <span class="add-on"></span>
+                <input id="bookmark_href" type="text" class="xlarge" name="bookmark[href]" />
+                <span class="help-inline">{{ app.translator.trans('bookmarks.add_widget.url') }}<span>
+            </div>
             <div class="clearfix"></div>
             <p>
-                <strong>Kategorie</strong>: <input type="text" class="small add-category" value="" /> <small>Wpisz &amp; <code>ENTER</code><small>
+                <strong>{{ app.translator.trans('bookmarks.add_widget.categories') }}</strong>: 
+                <input type="text" class="small add-category" value="" /> <small>{{ app.translator.trans('bookmarks.add_widget.categories_hint') }}<small>
             </p>
             <div class="clearfix"></div>
             <div class="categories" style="display: none"></div>
         </form>
     </div>
     <div class="modal-footer">
-        <button class="add btn small primary">Dodaj</button>
-        <button class="cancel btn small">Anuluj</button>
+        <button class="add btn small primary">{{ app.translator.trans('bookmarks.add_widget.add') }}</button>
+        <button class="cancel btn small">{{ app.translator.trans('bookmarks.add_widget.cancel') }}</button>
     </div>
 </div>

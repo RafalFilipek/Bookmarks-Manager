@@ -15,3 +15,12 @@ categories:
     important: Important
     other: Other
     search: Search...
+
+bookmarks:
+    add_widget:
+        title: Add link
+        url: URL address
+        categories: Categories
+        categories_hint: Write & ENTER
+        add: Add link
+        cancle: Cancel
