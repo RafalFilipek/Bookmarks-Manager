@@ -1,0 +1,17 @@
+global:
+    add_bookmark: Dodaj coś
+    ajax_wait: Chwileczkę
+    built_with: Strona działa dzięki
+    link_go_to: Przejdź do %link%
+
+routing:
+    set_marked:
+        url: /kategorie/{id}/ustaw-zaznaczenie/{bool}
+        params:
+            yes: tak
+            yes_no: (tak|nie)
+
+categories:
+    important: Ważne
+    other: Pozostałe
+    search: Szukaj...

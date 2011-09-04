@@ -1,0 +1,17 @@
+global:
+    add_bookmark: Add something
+    ajax_wait: One second
+    built_with: Powered by
+    link_go_to: Go to %link%
+
+routing:
+    set_marked:
+        url: /categories/{id}/set-marked/{bool}
+        params:
+            yes: yes
+            yes_no: (yes|no)
+
+categories:
+    important: Important
+    other: Other
+    search: Search...

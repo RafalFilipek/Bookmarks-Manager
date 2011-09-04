@@ -8,13 +8,13 @@
 
     <div id="search">
         <p>
-            <input id="search-input" type="text" name="s" placeholder="Szukaj..." autocomplete="off" />
+            <input id="search-input" type="text" name="s" placeholder="{{ app.translator.trans('categories.search') }}" autocomplete="off" />
         </p>
         <hr />
     </div>
 
     <div id="marked-categories" {% if not categories.marked %}style="display:none"{% endif %}>
-        <h6>Ważne</h6>
+        <h6>{{ app.translator.trans('categories.important') }}</h6>
         <div class="row categories">
             {% for category in categories.marked %}
                 {% include '_category-element.twig' with {'category' : category} %}
@@ -23,7 +23,7 @@
     </div>
 
     <div id="normal-categories" {% if not categories.normal %}style="display:none"{% endif %}>
-        <h6>Pozostałe</h6>
+        <h6>{{ app.translator.trans('categories.other') }}</h6>
         <div  class="row categories">
             {% for category in categories.normal %}
                 {% include '_category-element.twig' with {'category' : category} %}

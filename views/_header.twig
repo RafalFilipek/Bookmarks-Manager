@@ -3,7 +3,7 @@
 <html lang="pl">
     <head>
         <meta charset="utf-8">
-        <title>Simple Silex bookmarks manager</title>
+        <title>Simple Bookmarks Manager</title>
         <meta name="description" content="">
         <meta name="author" content="Rafał Filipek">
 
@@ -19,10 +19,10 @@
         <div class="container">
             <div class="row" id="top">
                 <h1 class="span12 columns">
-                    Bookmarks Manager <small id="load">chwileczkę</small>
+                    Bookmarks Manager <small id="load">{{ app.translator.trans('global.ajax_wait') }}</small>
                 </h1>
                 <div class="span4 columns offset13 copyrights">
-                    <button id="add-button" class="btn big primary">Dodaj coś</button>
+                    <button id="add-button" class="btn big primary">{{ app.translator.trans('global.add_bookmark') }}</button>
                 </div>
             </div>
             <hr />
