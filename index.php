@@ -4,9 +4,14 @@ require_once __DIR__.'/silex.phar';
 
 $app = new Silex\Application();
 
-$app['autoloader']->registerNamespace('Symfony', __DIR__.'/vendor/symfony/src');
+$app['autoloader']->registerNamespaces(array(
+    'Symfony'   => __DIR__.'/vendor/symfony/src',
+    'Rafal'     => __DIR__.'/vendor/rafal/src'
+));
 
 $app['debug'] = true;
+
+$app->register(new Rafal\MemcacheExtension\MemcacheExtension());
 
 $app->register(new Silex\Extension\TwigExtension(), array(
     'twig.path'       => __DIR__.'/views',

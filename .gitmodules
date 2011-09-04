@@ -19,3 +19,6 @@
 [submodule "vendor/symfony/src/Symfony/Component/Yaml"]
 	path = vendor/symfony/src/Symfony/Component/Yaml
 	url = https://github.com/symfony/Yaml
+[submodule "vendor/rafal/src/Rafal/MemcacheExtension"]
+	path = vendor/rafal/src/Rafal/MemcacheExtension
+	url = https://github.com/RafalFilipek/MemcacheExtension
