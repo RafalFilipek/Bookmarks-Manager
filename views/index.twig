@@ -1,0 +1,37 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+
+    {% if app.request.get('hide-intro') %}
+        {% include '_intro.twig' %}
+    {% endif %}
+
+    <div id="search">
+        <p>
+            <input id="search-input" type="text" name="s" placeholder="Szukaj..." autocomplete="off" />
+        </p>
+        <hr />
+    </div>
+
+    <div id="marked-categories" {% if not categories.marked %}style="display:none"{% endif %}>
+        <h6>Ważne</h6>
+        <div class="row categories">
+            {% for category in categories.marked %}
+                {% include '_category-element.twig' with {'category' : category} %}
+            {% endfor %}    
+        </div>
+    </div>
+
+    <div id="normal-categories" {% if not categories.normal %}style="display:none"{% endif %}>
+        <h6>Pozostałe</h6>
+        <div  class="row categories">
+            {% for category in categories.normal %}
+                {% include '_category-element.twig' with {'category' : category} %}
+            {% endfor %}
+        </div>
+    </div>
+
+
+    {% include '_bookmarks-manager.twig' %}
+
+{% endblock %}

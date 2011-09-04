@@ -1,0 +1,15 @@
+coffee -o ./public/js/ -c ./public/coffee/scripts.coffee
+lessc ./public/less/styles.less > ./public/css/styles.css
+
+if [ -f ./public/js/scripts.min.js ]
+then
+    rm ./public/js/scripts.min.js
+fi
+
+if [ -f ./public/css/styles.min.css ]
+then
+    rm ./public/css/styles.min.css
+fi
+
+yuicompressor --type js ./public/js/scripts.js > ./public/js/scripts.min.js
+yuicompressor --type css ./public/css/styles.css > ./public/css/styles.min.css
