@@ -25,6 +25,6 @@
 [submodule "public/js/isotope"]
 	path = public/js/isotope
 	url = https://github.com/desandro/isotope.git
-[submodule "vendor/rafal/src/ProfilerExtension"]
-	path = vendor/rafal/src/ProfilerExtension
+[submodule "vendor/rafal/src/Rafal/ProfilerExtension"]
+	path = vendor/rafal/src/Rafal/ProfilerExtension
 	url = git://github.com/RafalFilipek/ProfilerExtension.git
