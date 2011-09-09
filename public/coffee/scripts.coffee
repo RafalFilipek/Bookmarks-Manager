@@ -57,8 +57,12 @@ $ ->
     if e.ctrlKey is true
       e.preventDefault()
       $(this).toggleClass('selected')
+    else
+      if $(e.srcElement).hasClass('category-actions')
+        return
+      $(this).toggleClass('expanded').parent().isotope('reLayout');
     true
-  .find('span').click ->
+  .find('span').live 'click', ->
     element = $(this)
     manager = $('#category-manager')
     category = element.parents('.columns')
@@ -70,7 +74,7 @@ $ ->
         top: element.offset().top + 16
         left: element.offset().left + element.outerWidth() / 2 - manager.outerWidth() / 2
         })
-      .data('category-id', category.data('id')).data('category', category)
+      .data('category-id', category.data('id'))
       star = manager.find('.star').removeClass('on')
       if category.data('marked')
         star.addClass('on')
@@ -90,7 +94,12 @@ $ ->
       else 
         targetContainer   = $('#normal-categories')
         currentContainer  = $('#marked-categories')
-      $('#category-manager').data('category').appendTo(targetContainer.find('.categories')).data('marked', marked)
+      id = $('#category-manager').data('category-id')
+      category = $('#category-' + id)
+      category.data('marked', marked)
+      targetContainer.find('.categories').isotope('insert', category.clone(true, true))
+      currentContainer.find('.categories').isotope('remove', category)
+      $('.categories').isotope('reLayout')
       if currentContainer.find('.columns').length is 0
         currentContainer.hide()
       if not targetContainer.is(':visible')
@@ -121,11 +130,32 @@ $ ->
   $('#search-input').keyup ->
     val = $(this).val()
     if val.length > 0
-      $('.categories .columns:not(:contains("'+val+'"))').hide()
-      $('.categories .columns:contains("'+val+'")').show()
+      $('.categories').isotope({filter: ':contains("'+val+'")'})
     else
-      $('.categories .columns').show()
+      $('.categories').isotope({filter: '*'})
     $('#category-manager').hide()
     true
- 
+  
+  $('.categories').isotope({
+    itemSelector: '.columns'
+    masonry: {
+      columnWidth: 240
+    }
+    getSortData: {
+      name: (el)-> el.data('name')
+    }
+    sortBy: 'name'
+  })
+
+  $('.categories-block h6 ul a').click (e)->
+    e.preventDefault()
+    link = $(this)
+    layout = link.data('layout')
+    categories = link.parents('.categories-block').find('.categories')
+    if categories.data('layout') == layout
+      return
+    link.parents('ul').find('a').toggleClass('active')
+    categories.toggleClass('grid list').data('layout', layout).isotope({layoutMode: layout})
+
+
   true

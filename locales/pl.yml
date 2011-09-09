@@ -15,6 +15,10 @@ categories:
     important: Ważne
     other: Pozostałe
     search: Szukaj...
+    view: widok
+    grid: siatka
+    list: lista
+
 
 bookmarks:
     add_widget:

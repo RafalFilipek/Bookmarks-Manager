@@ -15,6 +15,9 @@ categories:
     important: Important
     other: Other
     search: Search...
+    view: view
+    grid: grid
+    list: list
 
 bookmarks:
     add_widget:
@@ -23,4 +26,4 @@ bookmarks:
         categories: Categories
         categories_hint: Write & ENTER
         add: Add link
-        cancle: Cancel
+        cancel: Cancel

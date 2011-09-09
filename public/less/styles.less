@@ -55,7 +55,31 @@
     }
 }
 
+.categories-block {
+    h6 {
+        ul {
+            float: right;
+            overflow: hidden;
+            font-size: 11px;
+
+            li {
+                float: left;
+                margin-left: 10px;
+
+                a.active {
+                    color: #BFBFBF;
+                }
+
+                small {
+                    font-size: 10px;
+                }
+            }
+        }
+    }
+}
+
 .categories {
+
     .columns {
         background-color: #f5f5f5;
         text-align: center;
@@ -101,6 +125,23 @@
             background-image: url('../img/check.png');
             background-position: 10px center;
             background-repeat:no-repeat;
+    }
+
+    &.grid {
+        .expanded {
+            width: 460px;
+        }   
+    }
+
+    &.list {
+        .columns {
+            width: 940px;
+            text-align: left;
+
+            div {
+                padding-left: 32px;
+            }
+        }   
     }
     
 }
@@ -163,4 +204,13 @@
             margin: 12px;
         }
     }
+}
+
+.isotope-item {
+  z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
 }

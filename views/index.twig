@@ -13,24 +13,39 @@
         <hr />
     </div>
 
-    <div id="marked-categories" {% if not categories.marked %}style="display:none"{% endif %}>
-        <h6>{{ app.translator.trans('categories.important') }}</h6>
-        <div class="row categories">
+    <div id="marked-categories" class="categories-block" {% if not categories.marked %}style="display:none"{% endif %}>
+        <h6>
+            {{ app.translator.trans('categories.important') }} 
+            <ul class="unstyled">
+                <li><small>{{ app.translator.trans('categories.view') }}</small></li>
+                <li><a href="#" class="active" data-layout="masonry" data-categories-class="grid">{{ app.translator.trans('categories.grid') }}</a></li>
+                <li><a href="#" data-layout="straightDown" data-categories-class="list">{{ app.translator.trans('categories.list') }}</a></li>
+            </ul>
+        </h6>
+        <div class="row categories grid" data-layout="grid">
             {% for category in categories.marked %}
                 {% include '_category-element.twig' with {'category' : category} %}
             {% endfor %}    
         </div>
     </div>
 
-    <div id="normal-categories" {% if not categories.normal %}style="display:none"{% endif %}>
-        <h6>{{ app.translator.trans('categories.other') }}</h6>
-        <div  class="row categories">
+    <div id="normal-categories" class="categories-block" {% if not categories.normal %}style="display:none"{% endif %}>
+        <h6>
+            {{ app.translator.trans('categories.other') }}
+            <ul class="unstyled">
+                <li><small>{{ app.translator.trans('categories.view') }}</small></li>
+                <li><a href="#" class="active" data-layout="masonry" data-categories-class="grid">{{ app.translator.trans('categories.grid') }}</a></li>
+                <li><a href="#" data-layout="straightDown" data-categories-class="list">{{ app.translator.trans('categories.list') }}</a></li>
+            </ul>
+        </h6>
+        <div  class="row categories grid"  data-layout="grid">
             {% for category in categories.normal %}
                 {% include '_category-element.twig' with {'category' : category} %}
             {% endfor %}
         </div>
     </div>
 
+    {{ profiler() }}
 
     {% include '_bookmarks-manager.twig' %}
 

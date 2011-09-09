@@ -1,7 +1,7 @@
-<div data-id="{{ category.id }}" data-marked="{{ category.marked }}" class="span4 columns">
+<div id="category-{{ category.id }}" data-id="{{ category.id }}" data-name="{{ category.name }}" data-marked="{{ category.marked }}" class="span4 columns">
     <div>
         {{ category.name }}
-        <small class="count"> &middot; 12</small>
+        <small class="count"> &middot; {{ category.count }}</small>
         <span class="category-actions"></span>
     </div>
 </div>
