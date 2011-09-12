@@ -28,3 +28,6 @@
 [submodule "vendor/rafal/src/Rafal/ProfilerExtension"]
 	path = vendor/rafal/src/Rafal/ProfilerExtension
 	url = git://github.com/RafalFilipek/ProfilerExtension.git
+[submodule "vendor/rafal/src/Rafal/JavascriptRoutingExtension"]
+	path = vendor/rafal/src/Rafal/JavascriptRoutingExtension
+	url = git://github.com/RafalFilipek/JavascriptRoutingExtension.git

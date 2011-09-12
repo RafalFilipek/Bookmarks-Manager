@@ -5,11 +5,7 @@ global:
     link_go_to: Go to %link%
 
 routing:
-    set_marked:
-        url: /categories/{id}/set-marked/{bool}
-        params:
-            yes: yes
-            yes_no: (yes|no)
+    set_marked: /categories/{id}/set-marked/{bool}
 
 categories:
     important: Important

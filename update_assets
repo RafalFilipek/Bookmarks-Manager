@@ -11,8 +11,11 @@ then
     rm ./public/css/styles.min.css
 fi
 
-yuicompressor --type js ./public/js/scripts.js > ./public/js/scripts.min.js
+yuicompressor --type js ./public/js/router.js >> ./public/js/scripts.min.js
+yuicompressor --type js ./public/js/scripts.js >> ./public/js/scripts.min.js
+
 yuicompressor --type css ./public/css/styles.css > ./public/css/styles.min.css
 
 rm ./public/css/styles.css
+rm ./public/js/router.js
 rm ./public/js/scripts.js

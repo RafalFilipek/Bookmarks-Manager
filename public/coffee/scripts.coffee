@@ -87,7 +87,7 @@ $ ->
     star = $(this)
     star.toggleClass('on')
     marked = star.hasClass('on')
-    $.get('/kategorie/'+$('#category-manager').data('category-id')+'/ustaw-zaznaczenie/'+( if marked then 'tak' else 'nie'), ->
+    $.get(Router.get('mark_category', { id : $('#category-manager').data('category-id'), bool : (if marked then 1 else 0)}), ->
       if marked
         targetContainer   = $('#marked-categories')
         currentContainer  = $('#normal-categories')
@@ -122,17 +122,21 @@ $ ->
     if e.keyCode is 83 and not $(e.target).is('input')
       $('#category-manager').hide()
       $('#search').show()
-      $('#search-input').val('').focus().trigger('keyup')
+      $('#search-input').val('').trigger('keyup').focus()
     if e.keyCode is 27
       $('#search').hide()
-      $('#search-input').val('').blur().trigger('keyup')
+      $('#search-input').val('').trigger('keyup').blur()
 
   $('#search-input').keyup ->
     val = $(this).val()
-    if val.length > 0
-      $('.categories').isotope({filter: ':contains("'+val+'")'})
-    else
+    type = if (val.length > 0 and val[0] is '#') then 'categories' else 'bookmarks'
+    val = val.replace('#', '')
+    l = val.length
+    if l is 0
       $('.categories').isotope({filter: '*'})
+      true
+    if type is 'categories'
+      $('.categories').isotope({filter: ':contains("'+val+'")'})
     $('#category-manager').hide()
     true
   
@@ -155,6 +159,7 @@ $ ->
     if categories.data('layout') == layout
       return
     link.parents('ul').find('a').toggleClass('active')
+    categories.find('.columns').removeClass('expanded')
     categories.toggleClass('grid list').data('layout', layout).isotope({layoutMode: layout})
 
 

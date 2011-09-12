@@ -6,21 +6,12 @@
         {% include '_intro.twig' %}
     {% endif %}
 
-    <div id="search">
-        <p>
-            <input id="search-input" type="text" name="s" placeholder="{{ app.translator.trans('categories.search') }}" autocomplete="off" />
-        </p>
-        <hr />
-    </div>
+    {% include '_search.twig' %}
 
     <div id="marked-categories" class="categories-block" {% if not categories.marked %}style="display:none"{% endif %}>
         <h6>
             {{ app.translator.trans('categories.important') }} 
-            <ul class="unstyled">
-                <li><small>{{ app.translator.trans('categories.view') }}</small></li>
-                <li><a href="#" class="active" data-layout="masonry" data-categories-class="grid">{{ app.translator.trans('categories.grid') }}</a></li>
-                <li><a href="#" data-layout="straightDown" data-categories-class="list">{{ app.translator.trans('categories.list') }}</a></li>
-            </ul>
+            {% include '_categories-view-options.twig' %}
         </h6>
         <div class="row categories grid" data-layout="grid">
             {% for category in categories.marked %}
@@ -32,11 +23,7 @@
     <div id="normal-categories" class="categories-block" {% if not categories.normal %}style="display:none"{% endif %}>
         <h6>
             {{ app.translator.trans('categories.other') }}
-            <ul class="unstyled">
-                <li><small>{{ app.translator.trans('categories.view') }}</small></li>
-                <li><a href="#" class="active" data-layout="masonry" data-categories-class="grid">{{ app.translator.trans('categories.grid') }}</a></li>
-                <li><a href="#" data-layout="straightDown" data-categories-class="list">{{ app.translator.trans('categories.list') }}</a></li>
-            </ul>
+            {% include '_categories-view-options.twig' %}
         </h6>
         <div  class="row categories grid"  data-layout="grid">
             {% for category in categories.normal %}

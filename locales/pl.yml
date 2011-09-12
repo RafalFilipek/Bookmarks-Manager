@@ -5,11 +5,7 @@ global:
     link_go_to: Przejdź do %link%
 
 routing:
-    set_marked:
-        url: /kategorie/{id}/ustaw-zaznaczenie/{bool}
-        params:
-            yes: tak
-            yes_no: (tak|nie)
+    set_marked: /kategorie/{id}/ustaw-zaznaczenie/{bool}
 
 categories:
     important: Ważne
