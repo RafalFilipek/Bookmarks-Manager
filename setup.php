@@ -11,9 +11,9 @@ $app['autoloader']->registerNamespaces(array(
 
 $app['debug'] = true;
 
-$app->register(new Rafal\MemcacheExtension\MemcacheExtension());
+$app->register(new Rafal\MemcacheServiceProvider\MemcacheServiceProvider());
 
-$app->register(new Silex\Extension\TwigExtension(), array(
+$app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path'       => __DIR__.'/views',
     'twig.class_path' => __DIR__.'/vendor/twig/lib',
     'twig.options'    => array(
@@ -21,31 +21,32 @@ $app->register(new Silex\Extension\TwigExtension(), array(
     )
 ));
 
-$app->register(new Rafal\ProfilerExtension\ProfilerExtension(), array(
+$app->register(new Rafal\ProfilerServiceProvider\ProfilerServiceProvider(), array(
     'profiler.data_url' => '__fetch_profiler_data',
     'profiler.cookie_name' => 'web_profiler'
 ));
 
-$app->register(new Rafal\JavascriptRoutingExtension\JavascriptRoutingExtension(), array(
+$app->register(new Rafal\JavascriptRoutingServiceProvider\JavascriptRoutingServiceProvider(), array(
     'jsrouting.path'        => __DIR__.'/public/js',
     'jsrouting.file_name'   => 'r.js',
     'jsrouting.refresh'     => $app['debug']
 ));
 
-$app->register(new Silex\Extension\UrlGeneratorExtension());
+$app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 
-$app->register(new Silex\Extension\DoctrineExtension(), array(
+$app->register(new Silex\Provider\DoctrineServiceProvider(), array(
     'db.options'    => array(
         'dbname'    => 'bm',
         'host'      => '127.0.0.1',
         'user'      => 'root',
-        'password'  => ''
+        'password'  => '',
+        'driver'    => 'pdo_mysql'
     ),
     'db.dbal.class_path'    => __DIR__.'/vendor/doctrine-dbal/lib',
     'db.common.class_path'  => __DIR__.'/vendor/doctrine-common/lib'
 ));
 
-$app->register(new Silex\Extension\TranslationExtension(), array(
+$app->register(new Silex\Provider\TranslationServiceProvider(), array(
     'locale'                    => 'pl',
     'locale_fallback'           => 'pl',
     'translation.class_path'    => __DIR__.'/vendor/symfony/src',

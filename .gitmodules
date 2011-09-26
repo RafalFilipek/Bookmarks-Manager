@@ -19,15 +19,15 @@
 [submodule "vendor/symfony/src/Symfony/Component/Yaml"]
 	path = vendor/symfony/src/Symfony/Component/Yaml
 	url = https://github.com/symfony/Yaml
-[submodule "vendor/rafal/src/Rafal/MemcacheExtension"]
-	path = vendor/rafal/src/Rafal/MemcacheExtension
-	url = https://github.com/RafalFilipek/MemcacheExtension
 [submodule "public/js/isotope"]
 	path = public/js/isotope
 	url = https://github.com/desandro/isotope.git
-[submodule "vendor/rafal/src/Rafal/ProfilerExtension"]
-	path = vendor/rafal/src/Rafal/ProfilerExtension
-	url = git://github.com/RafalFilipek/ProfilerExtension.git
-[submodule "vendor/rafal/src/Rafal/JavascriptRoutingExtension"]
-	path = vendor/rafal/src/Rafal/JavascriptRoutingExtension
-	url = git://github.com/RafalFilipek/JavascriptRoutingExtension.git
+[submodule "vendor/rafal/src/Rafal/JavascriptRoutingServiceProvider"]
+	path = vendor/rafal/src/Rafal/JavascriptRoutingServiceProvider
+	url = git@github.com:RafalFilipek/JavascriptRoutingServiceProvider.git
+[submodule "vendor/rafal/src/Rafal/MemcacheServiceProvider"]
+	path = vendor/rafal/src/Rafal/MemcacheServiceProvider
+	url = git@github.com:RafalFilipek/MemcacheServiceProvider.git
+[submodule "vendor/rafal/src/Rafal/ProfilerServiceProvider"]
+	path = vendor/rafal/src/Rafal/ProfilerServiceProvider
+	url = git@github.com:RafalFilipek/ProfilerServiceProvider.git
